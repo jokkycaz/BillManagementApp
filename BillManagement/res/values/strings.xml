@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Bill Management</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="add_bill">Add</string>
+    <string name="edit_bill">Edit</string>
+    <string name="delete_bill">Delete</string>
+    <string name="main_no_items">No Bills to Display</string>
+    <string name="add_new_bill">Add Bill</string>
+    <string name="cancel_add">Cancel</string>
+    <string name="blank"></string>
+    <string name="billDataInputText">Optional: Input Bill Information</string>
+
+</resources>
