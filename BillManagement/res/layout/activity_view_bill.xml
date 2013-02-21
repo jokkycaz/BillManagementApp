@@ -1,67 +1,131 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ViewBillActivity" >
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".ViewBillActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="380dp"
+        android:layout_above="@+id/linearLayout2"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/background"
         android:orientation="vertical" >
 		
         <ListView
             android:id="@+id/android:list"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" />
-
-        <TextView
-            android:id="@+id/android:empty"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:text="@string/main_no_items" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout1"
-        android:layout_below="@+id/linearLayout1"
-        android:text="@string/add_bill" />
+	<LinearLayout
+	    android:id="@+id/linearLayout5"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_alignParentLeft="true"
+	    android:background="@drawable/background" >
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_alignRight="@+id/linearLayout1"
-        android:text="@string/delete_bill" />
+	    <EditText
+	        android:id="@+id/viewBillNote"
+	        android:layout_width="match_parent"
+	        android:layout_height="39dp"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@+id/newBillDueDate"
+	        android:background="@drawable/textfield"
+	        android:ems="10"
+	        android:hint="@string/billDataInputText"
+	        android:inputType="textMultiLine" />
+	</LinearLayout>
 
-    <TextView
-        android:id="@+id/viewBillAmountPaid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/button1"
-        android:layout_toLeftOf="@+id/button3"
-        android:layout_toRightOf="@+id/button1"
-        android:hint="Bill Amount Paid"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:background="@drawable/rectangle" />
+	<LinearLayout
+	    android:id="@+id/linearLayout4"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_above="@+id/linearLayout5"
+	    android:layout_alignParentLeft="true"
+	    android:background="@drawable/background" >
 
-    <TextView
-        android:id="@+id/viewBillNote"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:layout_below="@+id/viewBillAmountPaid"
-        android:layout_toLeftOf="@+id/button3"
-        android:layout_toRightOf="@+id/button1"
-        android:gravity="center"
-        android:hint="Bill Note"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:background="@drawable/rectangle" />
+	    <EditText
+	        android:id="@+id/editBillDueDate"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:layout_margin="1dp"
+	        android:background="@drawable/textfield"
+	        android:ems="10"
+	        android:hint="MM/DD/YYYY"
+	        android:inputType="date" >
+
+	        <requestFocus />
+	    </EditText>
+
+	    <EditText
+	        android:id="@+id/viewBillAmountPaid"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:layout_margin="1dp"
+	        android:background="@drawable/textfield"
+	        android:ems="10"
+	        android:hint="Amount Paid"/>
+	</LinearLayout>
+
+	<LinearLayout
+	    android:id="@+id/linearLayout3"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_above="@+id/linearLayout4"
+	    android:layout_alignParentLeft="true"
+	    android:background="@drawable/background" >
+
+	    <EditText
+	        android:id="@+id/editBillName"
+	        android:layout_width="160dp"
+	        android:layout_height="wrap_content"
+	        android:layout_margin="1dp"
+	        android:layout_weight="1"
+	        android:background="@drawable/textfield"
+	        android:ems="10"
+	        android:hint="Bill Name" />
+
+	    <EditText
+	        android:id="@+id/editBillAmount"
+	        android:layout_width="162dp"
+	        android:layout_weight="1"
+	        android:layout_height="wrap_content"
+	        android:layout_margin="1dp"
+	        android:background="@drawable/textfield"
+	        android:ems="10"
+	        android:hint="Bill Amount" />
+
+	</LinearLayout>
+
+	<LinearLayout
+	    android:id="@+id/linearLayout2"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_above="@+id/linearLayout3"
+	    android:layout_alignParentLeft="true"
+	    android:background="@drawable/background" >
+
+	    <Button
+	        android:id="@+id/button1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:background="@drawable/btn_green_matte"
+	        android:text="@string/add_bill" />
+
+	    <Button
+	        android:id="@+id/button3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:background="@drawable/btn_green_matte"
+	        android:text="@string/delete_bill" />
+	</LinearLayout>
 
 </RelativeLayout>

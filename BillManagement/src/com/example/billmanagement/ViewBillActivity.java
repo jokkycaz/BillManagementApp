@@ -10,11 +10,13 @@ import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,14 +36,21 @@ public class ViewBillActivity extends ListActivity {
 	private EditText amount;
 	private EditText dueDate;
 	private EditText billNote;
-	private TextView showBillAmountPaid;
-	private TextView showBillNote;
+	private EditText editBillName;
+	private EditText editBillAmount;
+	private EditText editBillDate;
+	private EditText editBillAmountPaid;
+	private EditText editBillNote;
 	private RadioButton radioButton;
 	private int mSelectedPosition = -1;
+	private Button cancel;
+	private Button addBill;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getWindow().setFormat(PixelFormat.RGBA_8888);
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_DITHER);
 		setContentView(R.layout.activity_view_bill);
 		m_bills = new ArrayList<Bill>();
 		list = getListView();
@@ -73,6 +82,7 @@ public class ViewBillActivity extends ListActivity {
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 						context);
 				alertDialogBuilder.setView(promptsView);
+				//promptsView.setBackgroundResource(android.R.color.transparent);
 
 				name = (EditText) promptsView.findViewById(R.id.newBillName);
 				amount = (EditText) promptsView
@@ -82,18 +92,20 @@ public class ViewBillActivity extends ListActivity {
 				billNote = (EditText) promptsView
 						.findViewById(R.id.CreateBillNote);
 
-				Button cancel = (Button) promptsView.findViewById(R.id.Cancel);
+				cancel = (Button) promptsView.findViewById(R.id.Cancel);
 				cancel.setOnClickListener(new View.OnClickListener() {
 					public void onClick(View arg0) {
+						//cancel.setBackgroundResource(R.drawable.btn_keyboard_key_pressed_on);
 						Intent i = new Intent(context, ViewBillActivity.class);
 						startActivity(i);
 					}
 				});
 
-				Button addBill = (Button) promptsView
+				addBill = (Button) promptsView
 						.findViewById(R.id.addNewBill);
 				addBill.setOnClickListener(new View.OnClickListener() {
 					public void onClick(View view) {
+						//addBill.setBackgroundResource(R.drawable.btn_keyboard_key_pressed_on);
 						datasource.createBill(name.getText().toString(), amount
 								.getText().toString(), dueDate.getText()
 								.toString(), billNote.getText().toString());
@@ -165,6 +177,7 @@ public class ViewBillActivity extends ListActivity {
 			else{
 				holder = (ViewHolder)v.getTag();
 			}
+			v.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.MATCH_PARENT,85));
 			//OnClick Listener when row is clicked
 			v.setOnClickListener(new OnClickListener() {
 				@Override
@@ -187,11 +200,18 @@ public class ViewBillActivity extends ListActivity {
 	                Bill bill = items.get(position);
 					System.out.println(bill.getBillName() + " | "
 							+ bill.getId());
-					showBillAmountPaid = (TextView) findViewById(R.id.viewBillAmountPaid);
-					showBillNote = (TextView) findViewById(R.id.viewBillNote);
-					showBillAmountPaid.setText(bill.getBillAmountPaid()
+					editBillAmountPaid = (EditText) findViewById(R.id.viewBillAmountPaid);
+					editBillNote = (EditText) findViewById(R.id.viewBillNote);
+					editBillName = (EditText) findViewById(R.id.editBillName);
+					editBillAmount = (EditText) findViewById(R.id.editBillAmount);
+					editBillDate  = (EditText) findViewById(R.id.editBillDueDate);
+					
+					editBillNote.setHint(bill.getBillNote().toString());
+					editBillName.setHint(bill.getBillName().toString());
+					editBillAmount.setHint(bill.getBillAmount().toString());
+					editBillDate.setHint(bill.getBillDueDate().toString());
+					editBillAmountPaid.setHint(bill.getBillAmountPaid()
 							.toString());
-					showBillNote.setText(bill.getBillNote().toString());
 				}
 			});
 			if(mSelectedPosition != position){

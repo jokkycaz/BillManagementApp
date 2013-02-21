@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="0dip"
-    android:padding="0dip"
+    android:layout_height="fill_parent"
+    android:padding="1dip"
     android:clickable="true">
     
     <ImageView
 	   	android:id="@+id/icon"
 	    android:layout_width="wrap_content"
-	    android:layout_height="fill_parent"
+	    android:layout_height="match_parent"
 	    android:layout_marginRight="5dip"
 	    android:src="@drawable/ic_launcher" />
     	<LinearLayout
@@ -18,28 +18,33 @@
         	android:layout_height="fill_parent">
         <TextView
             android:id="@+id/toptext"
-            android:textSize="10sp"
-            android:layout_width="fill_parent"
-            android:layout_height="0dip"
+            android:textSize="17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
+            android:editable="true"
         />
         <TextView
             android:id="@+id/middletext"
-            android:textSize="10sp"
-            android:layout_width="fill_parent"
-            android:layout_height="0dip"
+            android:textSize="17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
+            android:editable="true"
+            
         />
         <TextView
-            android:layout_width="fill_parent"
-            android:textSize="10sp"
-            android:layout_height="0dip"
+            
+            android:layout_width="wrap_content"
+            android:textSize="17sp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/bottomtext"
             android:singleLine="true"
             android:ellipsize="marquee"
+            android:editable="true"
         />
     </LinearLayout>
     
@@ -50,7 +55,7 @@
 	        android:layout_weight=".15"
 	        android:focusable="false"
 	        android:text=""
-	        android:gravity="right|center_vertical"
+	        android:gravity="center"
 	        android:onClick="onClickRadioButton"/>
  	
         

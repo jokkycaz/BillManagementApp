@@ -2,71 +2,99 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@android:color/background_light"
-    android:layout_margin="1dp">
-    
-	
-    <EditText
-        android:id="@+id/newBillName"
-        android:layout_margin="1dp"
-        android:hint="Bill Name"
+    android:layout_margin="1dp"
+    android:background="@android:color/transparent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp"
-        android:ems="10" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/btn_dropdown_normal"
+        android:text="Add New Bill"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/newBillName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView1"
+        android:layout_margin="1dp"
+        android:background="@drawable/textfield"
+        android:ems="10"
+        android:hint="Bill Name" />
 
     <EditText
         android:id="@+id/newBillAmount"
-        android:layout_margin="1dp"
-        android:hint="Bill Amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/newBillName"
-        android:layout_centerHorizontal="true"
-        android:ems="10" >
+        android:layout_margin="1dp"
+        android:background="@drawable/textfield"
+        android:ems="10"
+        android:hint="Bill Amount" >
 
         <requestFocus />
     </EditText>
 
     <EditText
         android:id="@+id/newBillDueDate"
-        android:layout_margin="1dp"
-        android:hint="MM/DD/YYYY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/newBillAmount"
-        android:layout_centerHorizontal="true"
+        android:layout_margin="1dp"
+        android:background="@drawable/textfield"
         android:ems="10"
+        android:hint="MM/DD/YYYY"
         android:inputType="date" />
-
-    <Button
-        android:id="@+id/addNewBill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/newBillDueDate"
-        android:layout_below="@+id/newBillDueDate"
-        android:text="@string/add_new_bill" />
-
-    <Button
-        android:id="@+id/Cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/newBillDueDate"
-        android:layout_below="@+id/newBillDueDate"
-        android:text="@string/cancel_add" />
 
     <EditText
         android:id="@+id/CreateBillNote"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_below="@+id/addNewBill"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/newBillDueDate"
+        android:background="@drawable/textfield"
         android:ems="10"
-        android:inputType="textMultiLine"
-        android:hint="@string/billDataInputText" />
+        android:hint="@string/billDataInputText"
+        android:inputType="textMultiLine" />
 
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/CreateBillNote"
+        android:layout_margin="1dp"
+        android:background="@android:color/transparent" >
+
+        <Button
+            android:id="@+id/addNewBill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_green_matte"
+            android:text="@string/add_new_bill" />
+
+        <Button
+            android:id="@+id/Cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_green_matte"
+            android:text="@string/cancel_add" />
+    </LinearLayout>
 
 </RelativeLayout>
