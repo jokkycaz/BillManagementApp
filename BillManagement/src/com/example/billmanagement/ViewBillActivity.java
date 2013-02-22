@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.SlidingDrawer;
 import android.widget.TextView;
 
 public class ViewBillActivity extends ListActivity {
@@ -32,19 +33,15 @@ public class ViewBillActivity extends ListActivity {
 	private BillDataSource datasource;
 	private ListView list;
 	final Context context = this;
-	private EditText name;
-	private EditText amount;
-	private EditText dueDate;
-	private EditText billNote;
-	private EditText editBillName;
-	private EditText editBillAmount;
-	private EditText editBillDate;
-	private EditText editBillAmountPaid;
-	private EditText editBillNote;
+	private EditText name, amount, dueDate, billNote, editBillName, editBillAmount, editBillDate,
+		editBillAmountPaid, editBillNote;
 	private RadioButton radioButton;
 	private int mSelectedPosition = -1;
 	private Button cancel;
 	private Button addBill;
+	private SlidingDrawer slide;
+	
+	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -73,16 +70,12 @@ public class ViewBillActivity extends ListActivity {
 		final Button b = (Button) findViewById(R.id.button1);
 		b.setOnClickListener(new Button.OnClickListener() {
 			public void onClick(View arg0) {
-				// Intent i = new Intent(ViewBillActivity.this,
-				// AddBillActivity.class);
-				// startActivity(i);
 				LayoutInflater li = LayoutInflater.from(context);
 				View promptsView = li.inflate(R.layout.add_bill, null);
 
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 						context);
 				alertDialogBuilder.setView(promptsView);
-				//promptsView.setBackgroundResource(android.R.color.transparent);
 
 				name = (EditText) promptsView.findViewById(R.id.newBillName);
 				amount = (EditText) promptsView
@@ -95,7 +88,6 @@ public class ViewBillActivity extends ListActivity {
 				cancel = (Button) promptsView.findViewById(R.id.Cancel);
 				cancel.setOnClickListener(new View.OnClickListener() {
 					public void onClick(View arg0) {
-						//cancel.setBackgroundResource(R.drawable.btn_keyboard_key_pressed_on);
 						Intent i = new Intent(context, ViewBillActivity.class);
 						startActivity(i);
 					}
@@ -105,13 +97,37 @@ public class ViewBillActivity extends ListActivity {
 						.findViewById(R.id.addNewBill);
 				addBill.setOnClickListener(new View.OnClickListener() {
 					public void onClick(View view) {
-						//addBill.setBackgroundResource(R.drawable.btn_keyboard_key_pressed_on);
-						datasource.createBill(name.getText().toString(), amount
-								.getText().toString(), dueDate.getText()
-								.toString(), billNote.getText().toString());
+						//Input validation
+						Boolean nameBool = false,amountBool = false,dueDateBool = false;
+						if(inputValidation.isName(name.getText().toString()) == true && name.getText().toString().length() != 0){
+							nameBool = true;
+						}else{
+							name.setText("");
+							name.setHint("Invalid Name");
+						}
+						if(inputValidation.isCurrency(amount.getText().toString()) == true && amount.getText().toString().length() != 0){
+							amountBool = true;
+						}
+						else{
+							amount.setText("");
+							amount.setHint("Invalid Input");
+						}
+						if(dueDate.getText().toString().length() == 10 && inputValidation.isDate(dueDate.getText().toString()) == true){
+							dueDateBool = true;
+						}
+						else{
+							dueDate.setText("");
+							dueDate.setHint("Invalid Date: dd-mm-yy");
+						}
+						//if all input validation passed add bill to db
+						if(nameBool==true && amountBool==true && dueDateBool == true){
+							datasource.createBill(name.getText().toString(), amount
+									.getText().toString(), dueDate.getText()
+									.toString(), billNote.getText().toString());
 
-						Intent i = new Intent(context, ViewBillActivity.class);
-						startActivity(i);
+							Intent i = new Intent(context, ViewBillActivity.class);
+							startActivity(i);
+						}
 					}
 				});
 
@@ -177,12 +193,13 @@ public class ViewBillActivity extends ListActivity {
 			else{
 				holder = (ViewHolder)v.getTag();
 			}
-			v.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.MATCH_PARENT,85));
+			//v.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.MATCH_PARENT,85));
 			//OnClick Listener when row is clicked
 			v.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					
+					slide = (SlidingDrawer)findViewById(R.id.drawer);
+	                slide.open();
 				}
 			});
 			
@@ -196,6 +213,8 @@ public class ViewBillActivity extends ListActivity {
 	                }
 	                mSelectedPosition = position;
 	                radioButton = (RadioButton)v;
+	                slide = (SlidingDrawer)findViewById(R.id.drawer);
+	                slide.open();
 	                
 	                Bill bill = items.get(position);
 					System.out.println(bill.getBillName() + " | "
@@ -206,12 +225,13 @@ public class ViewBillActivity extends ListActivity {
 					editBillAmount = (EditText) findViewById(R.id.editBillAmount);
 					editBillDate  = (EditText) findViewById(R.id.editBillDueDate);
 					
-					editBillNote.setHint(bill.getBillNote().toString());
-					editBillName.setHint(bill.getBillName().toString());
-					editBillAmount.setHint(bill.getBillAmount().toString());
-					editBillDate.setHint(bill.getBillDueDate().toString());
-					editBillAmountPaid.setHint(bill.getBillAmountPaid()
+					editBillNote.setText(bill.getBillNote().toString());
+					editBillName.setText(bill.getBillName().toString());
+					editBillAmount.setText(bill.getBillAmount().toString());
+					editBillDate.setText(bill.getBillDueDate().toString());
+					editBillAmountPaid.setText(bill.getBillAmountPaid()
 							.toString());
+							
 				}
 			});
 			if(mSelectedPosition != position){
