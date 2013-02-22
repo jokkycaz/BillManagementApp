@@ -56,7 +56,7 @@
         android:layout_margin="1dp"
         android:background="@drawable/textfield"
         android:ems="10"
-        android:hint="dd/mm/yyyy"
+        android:hint="dd-mm-yyyy"
         android:inputType="date" />
 
     <EditText

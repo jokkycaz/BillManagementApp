@@ -21,7 +21,7 @@
 	<SlidingDrawer
 	    android:id="@+id/drawer"
 	    android:layout_width="match_parent"
-	    android:layout_height="160dp"
+	    android:layout_height="205dp"
 	    android:layout_alignParentBottom="true"
 	    android:layout_alignParentLeft="true"
 	    android:content="@+id/content"
@@ -60,14 +60,10 @@
 	            <EditText
 	                android:id="@+id/viewBillNote"
 	                android:layout_width="match_parent"
-	                android:layout_height="fill_parent"
-	                android:layout_alignParentLeft="true"
-	                android:layout_alignParentRight="true"
-	                android:layout_below="@+id/newBillDueDate"
+	                android:layout_height="70dp"
 	                android:background="@drawable/textfield"
 	                android:ems="10"
-	                android:hint="@string/billDataInputText"
-	                android:inputType="textMultiLine" />
+	                android:hint="@string/billDataInputText"/>
 	        </LinearLayout>
 
 	        <LinearLayout
