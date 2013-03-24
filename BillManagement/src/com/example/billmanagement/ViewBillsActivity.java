@@ -25,7 +25,7 @@ import android.widget.RadioButton;
 import android.widget.SlidingDrawer;
 import android.widget.TextView;
 
-public class ViewBillActivity extends ListActivity {
+public class ViewBillsActivity extends ListActivity {
 	private ProgressDialog m_ProgressDialog = null;
 	private ArrayList<Bill> m_bills = null;
 	private BillAdapter m_adapter;
@@ -48,7 +48,7 @@ public class ViewBillActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		getWindow().setFormat(PixelFormat.RGBA_8888);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_DITHER);
-		setContentView(R.layout.activity_view_bill);
+		setContentView(R.layout.activity_view_bills);
 		m_bills = new ArrayList<Bill>();
 		list = getListView();
 		this.m_adapter = new BillAdapter(this, R.layout.row, m_bills);
@@ -64,7 +64,7 @@ public class ViewBillActivity extends ListActivity {
 		};
 		Thread thread = new Thread(null, viewBills, "MagentoBackground");
 		thread.start();
-		m_ProgressDialog = ProgressDialog.show(ViewBillActivity.this,
+		m_ProgressDialog = ProgressDialog.show(ViewBillsActivity.this,
 				"Please wait...", "Retrieving data ...", true);
 
 		final Button b = (Button) findViewById(R.id.button1);
@@ -88,7 +88,7 @@ public class ViewBillActivity extends ListActivity {
 				cancel = (Button) promptsView.findViewById(R.id.Cancel);
 				cancel.setOnClickListener(new View.OnClickListener() {
 					public void onClick(View arg0) {
-						Intent i = new Intent(context, ViewBillActivity.class);
+						Intent i = new Intent(context, ViewBillsActivity.class);
 						startActivity(i);
 					}
 				});
@@ -125,7 +125,7 @@ public class ViewBillActivity extends ListActivity {
 									.getText().toString(), dueDate.getText()
 									.toString(), billNote.getText().toString());
 
-							Intent i = new Intent(context, ViewBillActivity.class);
+							Intent i = new Intent(context, ViewBillsActivity.class);
 							startActivity(i);
 						}
 					}

@@ -30,47 +30,53 @@ public final class R {
         public static final int textfield=0x7f02000d;
     }
     public static final class id {
-        public static final int Cancel=0x7f080016;
-        public static final int CreateBillNote=0x7f080014;
-        public static final int addNewBill=0x7f080015;
-        public static final int arrowUP=0x7f080003;
-        public static final int bottomtext=0x7f08001a;
-        public static final int button1=0x7f08000e;
-        public static final int button3=0x7f08000f;
-        public static final int content=0x7f080002;
-        public static final int drawer=0x7f080001;
-        public static final int editBillAmount=0x7f08000c;
-        public static final int editBillDueDate=0x7f080008;
-        public static final int editBillName=0x7f08000b;
-        public static final int handle=0x7f080004;
-        public static final int icon=0x7f080017;
-        public static final int linearLayout1=0x7f080000;
-        public static final int linearLayout2=0x7f08000d;
-        public static final int linearLayout3=0x7f08000a;
-        public static final int linearLayout4=0x7f080007;
-        public static final int linearLayout5=0x7f080005;
-        public static final int menu_settings=0x7f08001c;
-        public static final int middletext=0x7f080019;
-        public static final int newBillAmount=0x7f080012;
-        public static final int newBillDueDate=0x7f080013;
-        public static final int newBillName=0x7f080011;
-        public static final int radioButton=0x7f08001b;
-        public static final int textView1=0x7f080010;
-        public static final int toptext=0x7f080018;
-        public static final int viewBillAmountPaid=0x7f080009;
-        public static final int viewBillNote=0x7f080006;
+        public static final int Cancel=0x7f080018;
+        public static final int CreateBillNote=0x7f080016;
+        public static final int addNewBill=0x7f080017;
+        public static final int arrowUP=0x7f080005;
+        public static final int bottomtext=0x7f08001c;
+        public static final int button1=0x7f080010;
+        public static final int button3=0x7f080011;
+        public static final int buttonViewBills=0x7f080000;
+        public static final int buttonViewGraphs=0x7f080001;
+        public static final int content=0x7f080004;
+        public static final int drawer=0x7f080003;
+        public static final int editBillAmount=0x7f08000e;
+        public static final int editBillDueDate=0x7f08000a;
+        public static final int editBillName=0x7f08000d;
+        public static final int handle=0x7f080006;
+        public static final int icon=0x7f080019;
+        public static final int linearLayout1=0x7f080002;
+        public static final int linearLayout2=0x7f08000f;
+        public static final int linearLayout3=0x7f08000c;
+        public static final int linearLayout4=0x7f080009;
+        public static final int linearLayout5=0x7f080007;
+        public static final int menu_settings=0x7f08001e;
+        public static final int middletext=0x7f08001b;
+        public static final int newBillAmount=0x7f080014;
+        public static final int newBillDueDate=0x7f080015;
+        public static final int newBillName=0x7f080013;
+        public static final int radioButton=0x7f08001d;
+        public static final int textView1=0x7f080012;
+        public static final int toptext=0x7f08001a;
+        public static final int viewBillAmountPaid=0x7f08000b;
+        public static final int viewBillNote=0x7f080008;
     }
     public static final class layout {
-        public static final int activity_view_bill=0x7f030000;
-        public static final int add_bill=0x7f030001;
-        public static final int edit_bill=0x7f030002;
-        public static final int row=0x7f030003;
-        public static final int test=0x7f030004;
+        public static final int activity_main_page=0x7f030000;
+        public static final int activity_view_bills=0x7f030001;
+        public static final int activity_view_graphs=0x7f030002;
+        public static final int add_bill=0x7f030003;
+        public static final int edit_bill=0x7f030004;
+        public static final int row=0x7f030005;
+        public static final int test=0x7f030006;
     }
     public static final class menu {
         public static final int activity_view_bill=0x7f070000;
     }
     public static final class string {
+        public static final int activity_viewbills=0x7f05000b;
+        public static final int activity_viewgraphs=0x7f05000c;
         public static final int add_bill=0x7f050003;
         public static final int add_new_bill=0x7f050007;
         public static final int app_name=0x7f050000;
@@ -80,6 +86,7 @@ public final class R {
         public static final int delete_bill=0x7f050005;
         public static final int edit_bill=0x7f050004;
         public static final int hello_world=0x7f050001;
+        public static final int label_graphs_view=0x7f05000d;
         public static final int main_no_items=0x7f050006;
         public static final int menu_settings=0x7f050002;
     }

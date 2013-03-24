@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/buttonViewBills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="22dp"
+        android:text="@string/activity_viewbills" />
+
+    <Button
+        android:id="@+id/buttonViewGraphs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonViewBills"
+        android:layout_below="@+id/buttonViewBills"
+        android:layout_marginTop="24dp"
+        android:text="@string/activity_viewgraphs" />
+
+</RelativeLayout>

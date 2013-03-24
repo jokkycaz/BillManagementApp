@@ -12,5 +12,8 @@
     <string name="cancel_add">Cancel</string>
     <string name="blank"></string>
     <string name="billDataInputText">Optional: Input Bill Information</string>
+    <string name="activity_viewbills">Bills</string>
+    <string name="activity_viewgraphs">Graphs</string>
+    <string name="label_graphs_view">Graphs View</string>
 
 </resources>
