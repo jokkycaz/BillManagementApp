@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.example.billmanagement.Bill;
+import com.example.billmanagement.BillManagementApp;
 import com.example.database.DatabaseHelper;
 
 import android.content.ContentValues;
@@ -15,6 +16,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 public class BillDataSource {
+	
+	private static BillDataSource INSTANCE;
     
     private SQLiteDatabase database;
     private DatabaseHelper dbHelper;
@@ -28,12 +31,27 @@ public class BillDataSource {
             DatabaseHelper.COLUMN_BILL_NOTE
     };
     
-    public BillDataSource(Context context) {
+    private BillDataSource(Context context) {
         dbHelper = new DatabaseHelper(context);
     }
     
+    /** 
+     * Singleton
+     * Also opens the database.
+     * @return The only instance
+     */
+    public static BillDataSource getInstance() {
+    	if (INSTANCE == null) {
+    		INSTANCE = new BillDataSource(BillManagementApp.getContext());
+    		INSTANCE.open();
+    	}
+    	return INSTANCE;
+    }
+    
     public void open() throws SQLException{
-        database = dbHelper.getWritableDatabase();
+    	if (database == null) {
+    		database = dbHelper.getWritableDatabase();
+    	}
     }
     
     public void close() {
@@ -74,7 +92,7 @@ public class BillDataSource {
     public List<Bill> getAllBills() {
         List<Bill> bills = new ArrayList<Bill>();
                 
-        Cursor cursor = database.query(DatabaseHelper.TABLE_BILLS, allBills, null, null, null, null, null);    
+        Cursor cursor = database.query(DatabaseHelper.TABLE_BILLS, allBills, null, null, null, null, DatabaseHelper.COLUMN_BILL_DUE_DATE);    
         
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {

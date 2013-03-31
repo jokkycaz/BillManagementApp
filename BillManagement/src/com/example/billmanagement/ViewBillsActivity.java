@@ -55,8 +55,7 @@ public class ViewBillsActivity extends ListActivity {
         this.m_adapter = new BillAdapter(this, R.layout.row, m_bills);
         setListAdapter(this.m_adapter);
 
-        datasource = new BillDataSource(this);
-        datasource.open();
+        datasource = BillDataSource.getInstance();
         viewBills = new Runnable() {
             @Override
             public void run() {
@@ -93,7 +92,7 @@ public class ViewBillsActivity extends ListActivity {
                     public void onClick(View view) {
                         //Input validation
                         Boolean nameBool = false,amountBool = false,dueDateBool = false;
-                        if (inputValidation.isName(name.getText().toString())
+                        if (InputValidation.isName(name.getText().toString())
                                 && name.getText().toString().length() != 0) {
                             nameBool = true;
                         } else {
@@ -101,7 +100,7 @@ public class ViewBillsActivity extends ListActivity {
                             name.setHint("Invalid Name");
                         }
                         
-                        if (inputValidation.isCurrency(amount.getText().toString())
+                        if (InputValidation.isCurrency(amount.getText().toString())
                         		&& amount.getText().toString().length() != 0) {
                             amountBool = true;
                         } else {
@@ -110,7 +109,7 @@ public class ViewBillsActivity extends ListActivity {
                         }
                         
                         if (dueDate.getText().toString().length() == 10
-                        		&& inputValidation.isDate(dueDate.getText().toString())) {
+                        		&& InputValidation.isDate(dueDate.getText().toString())) {
                             dueDateBool = true;
                         } else {
                             dueDate.setText("");

@@ -1,6 +1,6 @@
 package com.example.billmanagement;
 
-public class inputValidation {
+public class InputValidation {
     
 	// TODO All these would be better using Regular Expressions.  We can do that later.
 	
