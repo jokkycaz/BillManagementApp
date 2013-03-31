@@ -11,145 +11,149 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/background"
         android:orientation="vertical" >
-		
+        
         <ListView
             android:id="@+id/android:list"
             android:layout_width="fill_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
 
-	<SlidingDrawer
-	    android:id="@+id/drawer"
-	    android:layout_width="match_parent"
-	    android:layout_height="205dp"
-	    android:layout_alignParentBottom="true"
-	    android:layout_alignParentLeft="true"
-	    android:content="@+id/content"
-	    android:handle="@+id/arrowUP" >
-	     <ImageView
-	            android:id="@+id/arrowUP"
-	            android:layout_width="35dp"
-	        	android:layout_height="35dp"
-	        	android:background="@drawable/arrow_up_float"
-	        	android:layout_gravity="center">
-	        	
-	    </ImageView>
-	    
-	    <ImageView
-	        android:id="@+id/handle"
-	        android:layout_width="fill_parent"
-	        android:layout_height="15dp"
-	        android:background="@drawable/btn_black">
-	        
-	    </ImageView>
+    <SlidingDrawer
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="205dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:content="@+id/content"
+        android:handle="@+id/arrowUP" >
+         <ImageView
+                android:id="@+id/arrowUP"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/arrow_up_float"
+                android:layout_gravity="center">
+                
+        </ImageView>
+        
+        <ImageView
+            android:id="@+id/handle"
+            android:layout_width="fill_parent"
+            android:layout_height="15dp"
+            android:background="@drawable/btn_black">
+            
+        </ImageView>
 
-	    <RelativeLayout
-	        android:id="@id/content"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:background="@android:color/darker_gray" >
+        <RelativeLayout
+            android:id="@id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray" >
 
-	        <LinearLayout
-	            android:id="@+id/linearLayout5"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_alignParentBottom="true"
-	            android:layout_alignParentLeft="true"
-	            android:background="@drawable/background" >
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/background" >
 
-	            <EditText
-	                android:id="@+id/viewBillNote"
-	                android:layout_width="match_parent"
-	                android:layout_height="70dp"
-	                android:background="@drawable/textfield"
-	                android:ems="10"
-	                android:hint="@string/billDataInputText"/>
-	        </LinearLayout>
+                <EditText
+                    android:id="@+id/viewBillNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/textfield"
+                    android:ems="10"
+                    android:hint="@string/billDataInputText"/>
+            </LinearLayout>
 
-	        <LinearLayout
-	            android:id="@+id/linearLayout4"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_above="@+id/linearLayout5"
-	            android:layout_alignParentLeft="true"
-	            android:background="@drawable/background" >
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/linearLayout5"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/background" >
 
-	            <EditText
-	                android:id="@+id/editBillDueDate"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_margin="1dp"
-	                android:layout_weight="1"
-	                android:background="@drawable/textfield"
-	                android:ems="10"
-	                android:hint="MM/DD/YYYY"
-	                android:inputType="date" />
+                <EditText
+                    android:id="@+id/editBillDueDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/textfield"
+                    android:ems="10"
+                    android:singleLine="true"
+                    android:hint="@string/slide_hint_due_date"
+                    android:inputType="date" />
 
-	            <EditText
-	                android:id="@+id/viewBillAmountPaid"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_margin="1dp"
-	                android:layout_weight="1"
-	                android:background="@drawable/textfield"
-	                android:ems="10"
-	                android:hint="Amount Paid" />
-	        </LinearLayout>
+                <EditText
+                    android:id="@+id/viewBillAmountPaid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/textfield"
+                    android:ems="10"
+                    android:singleLine="true"
+                    android:hint="@string/slide_hint_amount_paid" />
+            </LinearLayout>
 
-	        <LinearLayout
-	            android:id="@+id/linearLayout3"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_above="@+id/linearLayout4"
-	            android:layout_alignParentLeft="true"
-	            android:background="@drawable/background" >
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/linearLayout4"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/background" >
 
-	            <EditText
-	                android:id="@+id/editBillName"
-	                android:layout_width="160dp"
-	                android:layout_height="wrap_content"
-	                android:layout_margin="1dp"
-	                android:layout_weight="1"
-	                android:background="@drawable/textfield"
-	                android:ems="10"
-	                android:hint="Bill Name" />
+                <EditText
+                    android:id="@+id/editBillName"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/textfield"
+                    android:ems="10"
+                    android:singleLine="true"
+                    android:hint="@string/slide_hint_bill_name" />
 
-	            <EditText
-	                android:id="@+id/editBillAmount"
-	                android:layout_width="162dp"
-	                android:layout_height="wrap_content"
-	                android:layout_margin="1dp"
-	                android:layout_weight="1"
-	                android:background="@drawable/textfield"
-	                android:ems="10"
-	                android:hint="Bill Amount" />
-	        </LinearLayout>
+                <EditText
+                    android:id="@+id/editBillAmount"
+                    android:layout_width="162dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/textfield"
+                    android:ems="10"
+                    android:singleLine="true"
+                    android:hint="@string/slide_hint_bill_amount" />
+            </LinearLayout>
 
-	        <LinearLayout
-	            android:id="@+id/linearLayout2"
-	            android:layout_width="match_parent"
-	            android:layout_height="fill_parent"
-	            android:layout_above="@+id/linearLayout3"
-	            android:layout_alignParentLeft="true"
-	            android:background="@drawable/background" >
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@+id/linearLayout3"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/background" >
 
-	            <Button
-	                android:id="@+id/button1"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_weight="1"
-	                android:background="@drawable/btn_green_matte"
-	                android:text="@string/add_bill" />
+                <Button
+                    android:id="@+id/buttonAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_green_matte"
+                    android:text="@string/add_bill" />
 
-	            <Button
-	                android:id="@+id/button3"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_weight="1"
-	                android:background="@drawable/btn_green_matte"
-	                android:text="@string/delete_bill" />
-	        </LinearLayout>
-	    </RelativeLayout>
-	</SlidingDrawer>
+                <Button
+                    android:id="@+id/buttonDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_green_matte"
+                    android:text="@string/delete_bill" />
+            </LinearLayout>
+        </RelativeLayout>
+    </SlidingDrawer>
 
 </RelativeLayout>

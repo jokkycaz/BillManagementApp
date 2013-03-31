@@ -12,7 +12,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:hardwareAccelerated="false">
         <activity
             android:name="com.example.billmanagement.MainPageActivity"
             android:label="@string/app_name" >
@@ -23,7 +24,10 @@
         </activity>
         <activity android:name="com.example.billmanagement.AddBillActivity" />
         <activity android:name="com.example.billmanagement.ViewBillsActivity" />
-        <activity android:name="com.example.billmanagement.ViewGraphsActivity" />
+        <activity 
+            android:name="com.example.billmanagement.ViewGraphsActivity"
+            android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

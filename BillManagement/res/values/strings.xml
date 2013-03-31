@@ -15,5 +15,15 @@
     <string name="activity_viewbills">Bills</string>
     <string name="activity_viewgraphs">Graphs</string>
     <string name="label_graphs_view">Graphs View</string>
+    
+    <string name="addbill_hint_bill_amount">Bill Amount</string>
+    <string name="addbill_hint_bill_name">Bill Name</string>
+    <string name="addbill_hint_due_date">Due Date (MM-DD-YYYY)</string>
+    <string name="addbill_text_new_bill">Add New Bill</string>
+    
+    <string name="slide_hint_amount_paid">Amount Paid</string>
+    <string name="slide_hint_bill_amount">Bill Amount</string>
+    <string name="slide_hint_bill_name">Bill Name</string>
+    <string name="slide_hint_due_date">Due Date</string>
 
 </resources>

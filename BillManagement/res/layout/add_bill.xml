@@ -14,7 +14,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/btn_dropdown_normal"
-        android:text="Add New Bill"
+        android:text="@string/addbill_text_new_bill"
         android:gravity="center"
         android:textColor="@android:color/black"
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -29,7 +29,10 @@
         android:layout_margin="1dp"
         android:background="@drawable/textfield"
         android:ems="10"
-        android:hint="Bill Name" />
+        android:singleLine="true"
+        android:hint="@string/addbill_hint_bill_name">
+        <requestFocus />
+    </EditText>
 
     <EditText
         android:id="@+id/newBillAmount"
@@ -41,10 +44,9 @@
         android:layout_margin="1dp"
         android:background="@drawable/textfield"
         android:ems="10"
-        android:hint="Bill Amount" >
-
-        <requestFocus />
-    </EditText>
+        android:singleLine="true"
+        android:hint="@string/addbill_hint_bill_amount"
+        android:inputType="number"/>
 
     <EditText
         android:id="@+id/newBillDueDate"
@@ -56,7 +58,8 @@
         android:layout_margin="1dp"
         android:background="@drawable/textfield"
         android:ems="10"
-        android:hint="dd-mm-yyyy"
+        android:singleLine="true"
+        android:hint="@string/addbill_hint_due_date"
         android:inputType="date" />
 
     <EditText
@@ -68,6 +71,7 @@
         android:layout_below="@+id/newBillDueDate"
         android:background="@drawable/textfield"
         android:ems="10"
+        android:singleLine="false"
         android:hint="@string/billDataInputText"
         android:inputType="textMultiLine" />
 
