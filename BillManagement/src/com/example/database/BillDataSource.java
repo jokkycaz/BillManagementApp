@@ -87,8 +87,18 @@ public class BillDataSource {
         long id = bill.getId();
         Log.d("BillDataSource","Bill delete with id: " + id);
         database.delete(DatabaseHelper.TABLE_BILLS, DatabaseHelper.COLUMN_ID + " = " + id, null);
+        
     }
-    
+    public void editBill(Bill bill){
+    	long id = bill.getId();
+    	ContentValues values = new ContentValues();
+    	values.put(DatabaseHelper.COLUMN_BILL_NAME,bill.getBillName());
+    	values.put(DatabaseHelper.COLUMN_BILL_AMOUNT, bill.getBillAmount());
+        values.put(DatabaseHelper.COLUMN_BILL_DUE_DATE, bill.getBillDueDate().getTime());
+        values.put(DatabaseHelper.COLUMN_BILL_AMMOUNT_PAID, bill.getBillAmountPaid());
+        values.put(DatabaseHelper.COLUMN_BILL_NOTE, bill.getBillNote());
+    	database.update(DatabaseHelper.TABLE_BILLS, values, DatabaseHelper.COLUMN_ID + " = " + id, null);
+    }
     public List<Bill> getAllBills() {
         List<Bill> bills = new ArrayList<Bill>();
                 

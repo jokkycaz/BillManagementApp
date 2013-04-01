@@ -1,6 +1,7 @@
 package com.example.billmanagement;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.example.database.BillDataSource;
 import com.example.database.DateUtils;
@@ -42,8 +43,9 @@ public class ViewBillsActivity extends ListActivity {
     private int mSelectedPosition = -1;
     private Button cancel;
     private Button addBill;
+    private Button editBill;
     private SlidingDrawer slide;
-    
+    private long id;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +67,88 @@ public class ViewBillsActivity extends ListActivity {
         Thread thread = new Thread(null, viewBills, "MagentoBackground");
         thread.start();
         m_ProgressDialog = ProgressDialog.show(ViewBillsActivity.this, "Please wait...", "Retrieving data ...", true);
+        // Delete Bill Button Logic
+        ((Button) findViewById(R.id.buttonDelete)).setOnClickListener(new Button.OnClickListener(){
+        	public void onClick(View v){
+        		Bill b = new Bill();
+        		b.setId(id);
+        		datasource.deleteBill(b);
+        		startActivity(new Intent(context, ViewBillsActivity.class));
+        		
+        	}
+        });
         
+        //Edit Bill Button Logic
+        ((Button) findViewById(R.id.buttonEdit)).setOnClickListener(new Button.OnClickListener(){
+        	public void onClick(View arg0) {
+        		Bill oldBill = new Bill();
+        		Bill newBill = new Bill();
+        		//System.out.println(editBillName.getText().toString());
+        		
+        		editBillAmountPaid = (EditText) findViewById(R.id.viewBillAmountPaid);
+                editBillNote = (EditText) findViewById(R.id.viewBillNote);
+                editBillName = (EditText) findViewById(R.id.editBillName);
+                editBillAmount = (EditText) findViewById(R.id.editBillAmount);
+                editBillDate  = (EditText) findViewById(R.id.editBillDueDate);
+                
+                newBill.setId(id);
+                newBill.setBillName(editBillName.getText().toString());
+                System.out.println(editBillAmount.getText().toString());
+                if(!editBillAmount.getText().toString().equals("") && !editBillAmount.getText().toString().equals("Bill Amount")){
+                	newBill.setBillAmount(Double.parseDouble(editBillAmount.getText().toString()));
+                }
+                if(!editBillDate.getText().toString().equals("") && !editBillDate.getText().toString().equals("Due Date")){
+                	newBill.setBillDueDate(DateUtils.parse(editBillDate.getText().toString()));
+                }
+                
+                if(!editBillAmountPaid.getText().toString().equals("") && !editBillAmountPaid.getText().toString().equals("Amount Paid")){
+                	newBill.setBillAmountPaid(Double.parseDouble(editBillAmountPaid.getText().toString()));
+                }
+                
+                newBill.setBillNote(editBillNote.getText().toString());
+                
+                Boolean nameBool = false,amountBool = false,dueDateBool = false,amountPaidBool = false;
+                if (InputValidation.isName(editBillName.getText().toString())
+                        && editBillName.getText().toString().length() != 0) {
+                    nameBool = true;
+                } else {
+                	editBillName.setText("");
+                	editBillName.setHint("Invalid Name");
+                }
+                
+                if (InputValidation.isCurrency(editBillAmount.getText().toString())
+                		&& editBillAmount.getText().toString().length() != 0) {
+                    amountBool = true;
+                } else {
+                	editBillAmount.setText("");
+                	editBillAmount.setHint("Invalid Input");
+                }
+                
+                if (editBillDate.getText().toString().length() == 10
+                		&& InputValidation.isDate(editBillDate.getText().toString())) {
+                    dueDateBool = true;
+                } else {
+                	editBillDate.setText("");
+                	editBillDate.setHint("Invalid Date: mm-dd-yyyy");
+                }
+                
+                if (InputValidation.isCurrency(editBillAmountPaid.getText().toString())
+                		&& editBillAmountPaid.getText().toString().length() != 0) {
+                	amountPaidBool = true;
+                } else {
+                	editBillAmountPaid.setText("");
+                	editBillAmountPaid.setHint("Invalid Input");
+                }
+                
+                //if all input validation passed add bill to db
+                if (nameBool && amountBool && dueDateBool && amountPaidBool) {
+                	datasource.editBill(newBill);
+                	startActivity(new Intent(context, ViewBillsActivity.class));
+                }
+                
+                
+        	}
+        });
         ((Button) findViewById(R.id.buttonAdd)).setOnClickListener(new Button.OnClickListener() {
         	@Override
             public void onClick(View arg0) {
@@ -86,7 +169,7 @@ public class ViewBillsActivity extends ListActivity {
                         startActivity(new Intent(context, ViewBillsActivity.class));
                     }
                 });
-
+                //Add Bill Button
                 addBill = (Button) promptsView.findViewById(R.id.addNewBill);
                 addBill.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View view) {
@@ -127,7 +210,6 @@ public class ViewBillsActivity extends ListActivity {
                         }
                     }
                 });
-
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
             }
@@ -210,6 +292,7 @@ public class ViewBillsActivity extends ListActivity {
                     slide.open();
                     
                     final Bill bill = items.get(position);
+                    id = bill.getId();
                     System.out.println(bill.getBillName() + " | " + bill.getId());
                     editBillAmountPaid = (EditText) findViewById(R.id.viewBillAmountPaid);
                     editBillNote = (EditText) findViewById(R.id.viewBillNote);

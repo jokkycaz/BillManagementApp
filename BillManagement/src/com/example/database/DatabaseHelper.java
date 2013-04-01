@@ -35,7 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
       
       private static final String DATABASE_CREATE = "CREATE TABLE "
               + TABLE_BILLS + " (" 
-              + COLUMN_ID + " INTEGER PRIMATE KEY AUTOINCREMENT, " 
+              + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " 
               + COLUMN_BILL_NAME + " TEXT NOT NULL, "
               + COLUMN_BILL_AMOUNT + " REAL NOT NULL, "
               + COLUMN_BILL_DUE_DATE + " INTEGER NOT NULL, "
