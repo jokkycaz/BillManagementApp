@@ -28,6 +28,14 @@ public class MainPageActivity extends Activity {
                 MainPageActivity.this.startActivity(new Intent(MainPageActivity.this, ViewGraphsActivity.class));
             }
         });
+        
+        final Button buttonViewIncidentals = (Button) findViewById(R.id.buttonViewIncidentals);
+        buttonViewIncidentals.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainPageActivity.this.startActivity(new Intent(MainPageActivity.this, ViewIncidentalsActivity.class));
+            }
+        });
     }
 
 }

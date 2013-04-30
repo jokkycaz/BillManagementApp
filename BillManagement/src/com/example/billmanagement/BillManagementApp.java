@@ -6,7 +6,7 @@ import android.content.Context;
 public class BillManagementApp extends Application {
 	private static BillManagementApp INSTANCE;
 
-	@Override
+	
 	public void onCreate() {
 		super.onCreate();
 		BillManagementApp.INSTANCE = this;

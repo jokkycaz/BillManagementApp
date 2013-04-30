@@ -83,14 +83,15 @@ public class ViewBillsActivity extends ListActivity {
         	public void onClick(View arg0) {
         		Bill oldBill = new Bill();
         		Bill newBill = new Bill();
-        		//System.out.println(editBillName.getText().toString());
         		
+        		//get editText field info
         		editBillAmountPaid = (EditText) findViewById(R.id.viewBillAmountPaid);
                 editBillNote = (EditText) findViewById(R.id.viewBillNote);
                 editBillName = (EditText) findViewById(R.id.editBillName);
                 editBillAmount = (EditText) findViewById(R.id.editBillAmount);
                 editBillDate  = (EditText) findViewById(R.id.editBillDueDate);
                 
+                //make sure fields arent null
                 newBill.setId(id);
                 newBill.setBillName(editBillName.getText().toString());
                 System.out.println(editBillAmount.getText().toString());
@@ -107,6 +108,8 @@ public class ViewBillsActivity extends ListActivity {
                 
                 newBill.setBillNote(editBillNote.getText().toString());
                 
+                
+                //edit bill editText field validation
                 Boolean nameBool = false,amountBool = false,dueDateBool = false,amountPaidBool = false;
                 if (InputValidation.isName(editBillName.getText().toString())
                         && editBillName.getText().toString().length() != 0) {
@@ -140,7 +143,7 @@ public class ViewBillsActivity extends ListActivity {
                 	editBillAmountPaid.setHint("Invalid Input");
                 }
                 
-                //if all input validation passed add bill to db
+                //if all input validation passed edit bill to db
                 if (nameBool && amountBool && dueDateBool && amountPaidBool) {
                 	datasource.editBill(newBill);
                 	startActivity(new Intent(context, ViewBillsActivity.class));
@@ -149,6 +152,7 @@ public class ViewBillsActivity extends ListActivity {
                 
         	}
         });
+        // add bill pop up window
         ((Button) findViewById(R.id.buttonAdd)).setOnClickListener(new Button.OnClickListener() {
         	@Override
             public void onClick(View arg0) {

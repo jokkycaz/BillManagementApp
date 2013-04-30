@@ -14,7 +14,7 @@ private static final int DATABASE_VERSION = 1;
 */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String TABLE_BILLS = "bill";
+      public static final String TABLE_BILLS = "bill";
       public static final String COLUMN_ID = "_id";
       public static final String COLUMN_BILL_NAME = "billName";
       public static final String COLUMN_BILL_AMOUNT = "billAmount";

@@ -5,15 +5,22 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="add_bill">Add</string>
+    <string name="add_incidental">Add</string>
     <string name="edit_bill">Edit</string>
+    <string name="edit_incidental">Edit</string>
+    <string name="delete_incidental">Delete</string>
     <string name="delete_bill">Delete</string>
     <string name="main_no_items">No Bills to Display</string>
+    <string name="main_no_items_incidental">No Incidentals to Display</string>
     <string name="add_new_bill">Add Bill</string>
+    <string name="add_new_incidental">Add Incidental</string>
     <string name="cancel_add">Cancel</string>
     <string name="blank"></string>
     <string name="billDataInputText">Optional: Input Bill Information</string>
+    <string name="incidentalDataInputText">Optional: Input Incidental Information</string>
     <string name="activity_viewbills">Bills</string>
     <string name="activity_viewgraphs">Graphs</string>
+    <string name="activity_viewincidentals">Incidentals</string>
     <string name="label_graphs_view">Graphs View</string>
     
     <string name="addbill_hint_bill_amount">Bill Amount</string>
@@ -21,9 +28,19 @@
     <string name="addbill_hint_due_date">Due Date (MM-DD-YYYY)</string>
     <string name="addbill_text_new_bill">Add New Bill</string>
     
+     <string name="addincidental_hint_incidental_amount">Incidental Amount</string>
+    <string name="addincidental_hint_incidental_name">Incidental Name</string>
+    <string name="addincidental_hint_incidental_due_date">Due Date (MM-DD-YYYY)</string>
+    <string name="addincidental_hint_incidental_new_bill">Add New Incidental</string>
+    
     <string name="slide_hint_amount_paid">Amount Paid</string>
     <string name="slide_hint_bill_amount">Bill Amount</string>
     <string name="slide_hint_bill_name">Bill Name</string>
     <string name="slide_hint_due_date">Due Date</string>
+    
+    <string name="slide_hint_amount_paid_incidental">Amount Paid</string>
+    <string name="slide_hint_incidental_amount_incidental">Bill Amount</string>
+    <string name="slide_hint_incidental_name_incidental">Bill Name</string>
+    <string name="slide_hint_due_date_incidental">Due Date</string>
 
 </resources>

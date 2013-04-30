@@ -29,6 +29,9 @@
             android:name="com.example.billmanagement.ViewGraphsActivity"
             android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar"
             android:screenOrientation="landscape"/>
+        <activity
+            android:name="com.example.billmanagement.ViewIncidentalsActivity" />
+            
     </application>
 
 </manifest>
