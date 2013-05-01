@@ -28,5 +28,12 @@
         android:layout_below="@+id/buttonViewGraphs"
         android:layout_marginTop="24dp"
         android:text="@string/activity_viewincidentals" />
+     <Button
+        android:id="@+id/buttonViewCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonViewIncidentals"
+        android:layout_marginTop="24dp"
+        android:text="Calendar" />
 
 </RelativeLayout>

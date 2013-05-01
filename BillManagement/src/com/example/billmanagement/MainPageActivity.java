@@ -36,6 +36,13 @@ public class MainPageActivity extends Activity {
                 MainPageActivity.this.startActivity(new Intent(MainPageActivity.this, ViewIncidentalsActivity.class));
             }
         });
+        final Button buttonViewCalendar = (Button) findViewById(R.id.buttonViewCalendar);
+        buttonViewCalendar.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainPageActivity.this.startActivity(new Intent(MainPageActivity.this, ViewCalendarActivity.class));
+            }
+        });
     }
 
 }

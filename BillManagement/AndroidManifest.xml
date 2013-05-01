@@ -31,6 +31,8 @@
             android:screenOrientation="landscape"/>
         <activity
             android:name="com.example.billmanagement.ViewIncidentalsActivity" />
+        <activity
+            android:name="com.example.billmanagement.ViewCalendarActivity" />
             
     </application>
 
