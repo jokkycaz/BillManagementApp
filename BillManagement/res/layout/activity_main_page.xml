@@ -3,37 +3,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <Button
-        android:id="@+id/buttonViewBills"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="22dp"
-        android:text="@string/activity_viewbills" />
-
-    <Button
-        android:id="@+id/buttonViewGraphs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/buttonViewBills"
-        android:layout_below="@+id/buttonViewBills"
-        android:layout_marginTop="24dp"
-        android:text="@string/activity_viewgraphs" />
-    <Button
-        android:id="@+id/buttonViewIncidentals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonViewGraphs"
-        android:layout_marginTop="24dp"
-        android:text="@string/activity_viewincidentals" />
      <Button
-        android:id="@+id/buttonViewCalendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonViewIncidentals"
-        android:layout_marginTop="24dp"
-        android:text="Calendar" />
+         android:id="@+id/buttonViewGraphs"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/buttonViewBills"
+         android:layout_alignBottom="@+id/buttonViewBills"
+         android:layout_alignParentRight="true"
+         android:layout_marginRight="66dp"
+         android:background="@drawable/bill" />
+
+     <Button
+         android:id="@+id/buttonViewCalendar"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/buttonViewIncidentals"
+         android:layout_alignBottom="@+id/buttonViewIncidentals"
+         android:layout_alignRight="@+id/buttonViewGraphs"
+         android:background="@drawable/incidental" />
+
+     <Button
+         android:id="@+id/buttonViewBills"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         android:layout_marginLeft="43dp"
+         android:layout_marginTop="40dp"
+         android:background="@drawable/graphs" />
+
+     <Button
+         android:id="@+id/buttonViewIncidentals"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/buttonViewBills"
+         android:layout_below="@+id/buttonViewBills"
+         android:layout_marginTop="143dp"
+         android:background="@drawable/calendar" />
 
 </RelativeLayout>
